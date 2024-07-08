@@ -11,6 +11,7 @@ D:\SteamLibrary\steamapps\common\Scrap Mechanic\Survival\Scripts\game\SurvivalGa
 3.  above that line add the new line `sm.game.bindChatCommand( "/exportbylog", {}, "cl_onChatCommand", "Exports blueprint by writing it to log" )`
 
 4.  search for, and find; `elseif params[1] == "/import" then` about at line 546
+5.  above it add the following code
    ```
 	elseif params[1] == "/exportbylog" then
 		local rayCastValid, rayCastResult = sm.localPlayer.getRaycast( 100 )
