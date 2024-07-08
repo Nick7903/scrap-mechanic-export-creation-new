@@ -45,4 +45,4 @@ D:\SteamLibrary\steamapps\common\Scrap Mechanic\Survival\Scripts\game\SurvivalGa
 12. press enter to type command, type "/exportbylog", make sure it responds with "Exported creation to log file"
 
 13. find the newest log file in `..\steamapps\common\Scrap Mechanic\Survival\Logs` with name starting with "game-" ( NOT "mygui-" )
-
+14. search the file for `ERROR: Z:\Jenkins\workspace\sm\ContraptionCommon\wrap_Log.cpp:`, and copy the line starting with where it says `{"bodies":[`
