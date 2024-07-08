@@ -19,7 +19,7 @@ D:\SteamLibrary\steamapps\common\Scrap Mechanic\Survival\Scripts\game\SurvivalGa
 	elseif params[1] == "/exportbylog" then
 		local rayCastValid, rayCastResult = sm.localPlayer.getRaycast( 100 )
 		if rayCastValid and rayCastResult.type == "body" then
-			local exportParams = {
+			local exportbylogParams = {
 				body = rayCastResult:getBody()
 			}
 			self.network:sendToServer( "sv_exportbylogCreation", exportbylogParams )
