@@ -22,3 +22,11 @@ D:\SteamLibrary\steamapps\common\Scrap Mechanic\Survival\Scripts\game\SurvivalGa
 			self.network:sendToServer( "sv_exportCreation", exportParams )
 		end
 ```
+
+6.  search for, and find; `function SurvivalGame.sv_importCreation( self, params )` about at line 763
+7.  above it add the following code
+   ```
+	function SurvivalGame.sv_exportCreation( self, params )
+		sm.log.warning( sm.creation.exportToString( params.body, nil, nil ) )
+	end
+```
