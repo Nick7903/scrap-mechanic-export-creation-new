@@ -2,10 +2,6 @@
 
 This will show a clumsy, but working, way of exporting and importing Scrap Mechanic creations in survival, after the export command was removed.
 
-D:\SteamLibrary\steamapps\common\Scrap Mechanic\Survival\LocalBlueprints
-D:\SteamLibrary\steamapps\common\Scrap Mechanic\Survival\Logs
-D:\SteamLibrary\steamapps\common\Scrap Mechanic\Survival\Scripts\game\SurvivalGame.lua
-
 1.  open `..\steamapps\common\Scrap Mechanic\Survival\Scripts\game\SurvivalGame.lua`
 2.  make sure you have access to commands, by adding `g_survivalDev = true` above the first function about at line 40
    
