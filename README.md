@@ -22,14 +22,14 @@ D:\SteamLibrary\steamapps\common\Scrap Mechanic\Survival\Scripts\game\SurvivalGa
 			local exportParams = {
 				body = rayCastResult:getBody()
 			}
-			self.network:sendToServer( "sv_exportCreation", exportParams )
+			self.network:sendToServer( "sv_exportbylogCreation", exportParams )
 		end
 ```
 
 6.  search for, and find; `function SurvivalGame.sv_importCreation( self, params )` about at line 763
 7.  above it add the following code
    ```
-	function SurvivalGame.sv_exportCreation( self, params )
+	function SurvivalGame.sv_exportbylogCreation( self, params )
 		sm.log.warning( sm.creation.exportToString( params.body ) )
 	end
 ```
