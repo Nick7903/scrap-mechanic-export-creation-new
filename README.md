@@ -22,7 +22,7 @@ D:\SteamLibrary\steamapps\common\Scrap Mechanic\Survival\Scripts\game\SurvivalGa
 			local exportParams = {
 				body = rayCastResult:getBody()
 			}
-			self.network:sendToServer( "sv_exportbylogCreation", exportParams )
+			self.network:sendToServer( "sv_exportbylogCreation", exportbylogParams )
 		end
 ```
 
