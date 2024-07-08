@@ -7,14 +7,16 @@ D:\SteamLibrary\steamapps\common\Scrap Mechanic\Survival\Logs
 D:\SteamLibrary\steamapps\common\Scrap Mechanic\Survival\Scripts\game\SurvivalGame.lua
 
 1.  open ..\steamapps\common\Scrap Mechanic\Survival\Scripts\game\SurvivalGame.lua
-2.  search for, and find; `sm.game.bindChatCommand( "/import"` about at line 217
-3.  above that line add the following new line
+2.  make sure you have access to commands, by adding `g_survivalDev = true` above the first function about at line 40
+   
+3.  search for, and find; `sm.game.bindChatCommand( "/import"` about at line 217
+4.  above that line add the following new line
    ```
 	sm.game.bindChatCommand( "/exportbylog", {}, "cl_onChatCommand", "Exports blueprint by writing it to log" )`
 ```
 
-6.  search for, and find; `elseif params[1] == "/import" then` about at line 546
-7.  above it add the following code
+5.  search for, and find; `elseif params[1] == "/import" then` about at line 546
+6.  above it add the following code
    ```
 	elseif params[1] == "/exportbylog" then
 		local rayCastValid, rayCastResult = sm.localPlayer.getRaycast( 100 )
@@ -26,8 +28,8 @@ D:\SteamLibrary\steamapps\common\Scrap Mechanic\Survival\Scripts\game\SurvivalGa
 		end
 ```
 
-6.  search for, and find; `function SurvivalGame.sv_importCreation( self, params )` about at line 763
-7.  above it add the following code
+7.  search for, and find; `function SurvivalGame.sv_importCreation( self, params )` about at line 763
+8.  above it add the following code
    ```
 	function SurvivalGame.sv_exportbylogCreation( self, params )
 		sm.log.warning( sm.creation.exportToString( params.body ) )
