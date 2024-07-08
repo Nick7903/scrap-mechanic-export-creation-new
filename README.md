@@ -6,7 +6,7 @@ D:\SteamLibrary\steamapps\common\Scrap Mechanic\Survival\LocalBlueprints
 D:\SteamLibrary\steamapps\common\Scrap Mechanic\Survival\Logs
 D:\SteamLibrary\steamapps\common\Scrap Mechanic\Survival\Scripts\game\SurvivalGame.lua
 
-1.  open ..\steamapps\common\Scrap Mechanic\Survival\Scripts\game\SurvivalGame.lua
+1.  open `..\steamapps\common\Scrap Mechanic\Survival\Scripts\game\SurvivalGame.lua`
 2.  make sure you have access to commands, by adding `g_survivalDev = true` above the first function about at line 40
    
 3.  search for, and find; `sm.game.bindChatCommand( "/import"` about at line 217
@@ -33,5 +33,16 @@ D:\SteamLibrary\steamapps\common\Scrap Mechanic\Survival\Scripts\game\SurvivalGa
    ```
 	function SurvivalGame.sv_exportbylogCreation( self, params )
 		sm.log.warning( sm.creation.exportToString( params.body ) )
+		self.network:sendToClients( "client_showMessage", "Exported creation to log file" )
 	end
 ```
+
+9. save the file
+
+10. exit Scrap Mechanic world and reenter, no need to restart game
+
+11. go up to and point crosshair at free floating creation ( not on lift, not connected to world )
+12. press enter to type command, type "/exportbylog", make sure it responds with "Exported creation to log file"
+
+13. find the newest log file in `..\steamapps\common\Scrap Mechanic\Survival\Logs` with name starting with "game-" ( NOT "mygui-" )
+
