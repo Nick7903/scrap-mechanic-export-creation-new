@@ -45,4 +45,9 @@ D:\SteamLibrary\steamapps\common\Scrap Mechanic\Survival\Scripts\game\SurvivalGa
 12. press enter to type command, type "/exportbylog", make sure it responds with "Exported creation to log file"
 
 13. find the newest log file in `..\steamapps\common\Scrap Mechanic\Survival\Logs` with name starting with "game-" ( NOT "mygui-" )
-14. search the file for `ERROR: Z:\Jenkins\workspace\sm\ContraptionCommon\wrap_Log.cpp:`, and copy the line starting with where it says `{"bodies":[`
+14. search the file for `ERROR: Z:\Jenkins\workspace\sm\ContraptionCommon\wrap_Log.cpp:`, and copy the rest of the line starting with where it says `{"bodies":[`
+
+15. paste the text into a new file in `D:\SteamLibrary\steamapps\common\Scrap Mechanic\Survival\LocalBlueprints` with the extension `.blueprint`
+16. assert that you have a file in the `localBlueprints` folder, with a name like `mycreation.blueprint` with text in it that starts with `{"bodies":[` and ends with `,"version":4}`
+
+17. enter the Scrap Mechanic world yet again and use the import command to import your creation: `/import mycreation`
