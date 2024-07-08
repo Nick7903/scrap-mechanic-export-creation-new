@@ -27,6 +27,6 @@ D:\SteamLibrary\steamapps\common\Scrap Mechanic\Survival\Scripts\game\SurvivalGa
 7.  above it add the following code
    ```
 	function SurvivalGame.sv_exportCreation( self, params )
-		sm.log.warning( sm.creation.exportToString( params.body, nil, nil ) )
+		sm.log.warning( sm.creation.exportToString( params.body ) )
 	end
 ```
