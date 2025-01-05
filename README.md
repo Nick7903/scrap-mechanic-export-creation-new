@@ -10,7 +10,7 @@ This only works if you are the host of the world.
 3.  search for, and find; `sm.game.bindChatCommand( "/import"` about at line 217
 4.  above that line add the following new line
    ```
-	sm.game.bindChatCommand( "/exportbylog", {}, "cl_onChatCommand", "Exports blueprint by writing it to log" )`
+	sm.game.bindChatCommand( "/exportbylog", {}, "cl_onChatCommand", "Exports blueprint by writing it to log" )
 ```
 
 5.  search for, and find; `elseif params[1] == "/import" then` about at line 546
