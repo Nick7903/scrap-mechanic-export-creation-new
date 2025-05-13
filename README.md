@@ -45,7 +45,7 @@ This only works if you are the host of the world.
 13. find the newest log file in `..\steamapps\common\Scrap Mechanic\Logs` with name starting with "game-" ( NOT "mygui-" )
 14. search the file for `wrap_Log.cpp:26`, and copy the rest of the line starting with where it says `{"bodies":[`
 
-15. paste the text into a new file in `D:\SteamLibrary\steamapps\common\Scrap Mechanic\Survival\LocalBlueprints` with the extension `.blueprint`
+15. paste the text into a new file in `..\steamapps\common\Scrap Mechanic\Survival\LocalBlueprints` with the extension `.blueprint`
 16. assert that you have a file in the `localBlueprints` folder, with a name like `mycreation.blueprint` with text in it that starts with `{"bodies":[` and ends with `,"version":4}`
 
 17. enter any Scrap Mechanic world and use the import command to import your creation: `/import mycreation`
