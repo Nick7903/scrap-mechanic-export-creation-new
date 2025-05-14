@@ -1,0 +1,44 @@
+@@ -37,6 +37,8 @@
+ local IntroEndFadeDuration = 1.1
+ local IntroFadeTimeout = 5.0
+ 
++g_survivalDev = true
++
+ function SurvivalGame.server_onCreate( self )
+ 	print( "SurvivalGame.server_onCreate" )
+ 	self.sv = {}
+@@ -211,6 +213,7 @@
+ 		sm.game.bindChatCommand( "/spawn", { { "string", "unitName", true }, { "int", "amount", true } }, "cl_onChatCommand", "Spawn a unit: 'woc', 'tapebot', 'totebot', 'haybot'" )
+ 		sm.game.bindChatCommand( "/harvestable", { { "string", "harvestableName", true } }, "cl_onChatCommand", "Create a harvestable: 'tree', 'stone'" )
+ 		sm.game.bindChatCommand( "/cleardebug", {}, "cl_onChatCommand", "Clear debug draw objects" )
++		sm.game.bindChatCommand( "/exportbylog", {}, "cl_onChatCommand", "Exports blueprint by writing it to log" )
+ 		sm.game.bindChatCommand( "/import", { { "string", "name", false } }, "cl_onChatCommand", "Imports blueprint $SURVIVAL_DATA/LocalBlueprints/<name>.blueprint" )
+ 		sm.game.bindChatCommand( "/starterkit", {}, "cl_onChatCommand", "Spawn a starter kit" )
+ 		sm.game.bindChatCommand( "/mechanicstartkit", {}, "cl_onChatCommand", "Spawn a starter kit for starting at mechanic station" )
+@@ -526,6 +529,14 @@
+ 		end
+ 	elseif params[1] == "/cleardebug" then
+ 		sm.debugDraw.clear()
++	elseif params[1] == "/exportbylog" then
++		local rayCastValid, rayCastResult = sm.localPlayer.getRaycast( 100 )
++		if rayCastValid and rayCastResult.type == "body" then
++			local exportbylogParams = {
++				body = rayCastResult:getBody()
++			}
++			self.network:sendToServer( "sv_exportbylogCreation", exportbylogParams )
++		end
+ 	elseif params[1] == "/import" then
+ 		local rayCastValid, rayCastResult = sm.localPlayer.getRaycast( 100 )
+ 		if rayCastValid then
+@@ -738,6 +749,11 @@
+ 	sm.event.sendToWorld( params.world, "sv_spawnHarvestable", params )
+ end
+ 
++function SurvivalGame.sv_exportbylogCreation( self, params )
++	sm.log.warning( sm.creation.exportToString( params.body ) )
++	self.network:sendToClients( "client_showMessage", "Exported creation to log file" )
++end
++
+ function SurvivalGame.sv_importCreation( self, params )
+ 	sm.creation.importFromFile( params.world, "$SURVIVAL_DATA/LocalBlueprints/"..params.name..".blueprint", params.position )
+ end
